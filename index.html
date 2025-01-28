@@ -22,8 +22,32 @@
         header h1 {
             margin: 0;
         }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: #0056b3;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #fff;
+            color: #0056b3;
+        }
         section {
             padding: 1rem 2rem;
+            margin: 1rem auto;
+            max-width: 900px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .section-title {
             color: #007BFF;
@@ -36,9 +60,33 @@
             margin-top: 1rem;
             padding: 1rem 2rem;
             background-color: #e9ecef;
+            border-radius: 8px;
+            text-align: center;
         }
         .contact p {
             margin: 0.2rem 0;
+        }
+        button {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            margin: 1rem 0;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate {
+            animation: fadeIn 0.8s ease-in-out;
         }
     </style>
 </head>
@@ -48,12 +96,21 @@
         <p>Senior QA Engineer</p>
     </header>
 
-    <section>
+    <nav>
+        <a href="#objective">Job Objective</a>
+        <a href="#competencies">Core Competencies</a>
+        <a href="#skills">Technical Skills</a>
+        <a href="#experience">Work Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="objective" class="animate">
         <h2 class="section-title">Job Objective</h2>
         <p>Dynamic and detail-oriented Senior QA Engineer with a focus on delivering exceptional software quality through comprehensive testing methodologies. Targeting roles in Software Quality Assurance and Automation Testing within innovative technology firms.</p>
     </section>
 
-    <section>
+    <section id="competencies" class="animate">
         <h2 class="section-title">Core Competencies</h2>
         <ul>
             <li>Quality Assurance</li>
@@ -71,7 +128,7 @@
         </ul>
     </section>
 
-    <section>
+    <section id="skills" class="animate">
         <h2 class="section-title">Technical Skills</h2>
         <ul>
             <li>Programming Languages: Java, Python, C#, Cypress</li>
@@ -85,7 +142,7 @@
         </ul>
     </section>
 
-    <section>
+    <section id="experience" class="animate">
         <h2 class="section-title">Work Experience</h2>
         <h3>Saven Global Services Pvt. Ltd.</h3>
         <p><strong>Senior QA Engineer</strong> (March 2022 - Present)</p>
@@ -96,20 +153,10 @@
             <li>Collaborated with cross-functional teams through sprint planning and daily stand-ups.</li>
             <li>Provided training and mentorship to junior team members on automation techniques.</li>
         </ul>
+        <button onclick="alert('More detailed experience coming soon!')">View More Details</button>
     </section>
 
-    <section>
-        <h2 class="section-title">Achievements</h2>
-        <ul>
-            <li>Reduced manual testing efforts by 40% through strategic automation framework implementation.</li>
-            <li>Improved test coverage with robust automation, minimizing production defects.</li>
-            <li>Optimized application response time by 50%, enhancing user satisfaction.</li>
-            <li>Mentored junior engineers, increasing team efficiency by 35%.</li>
-            <li>Achieved 90% client satisfaction by delivering quality projects.</li>
-        </ul>
-    </section>
-
-    <section>
+    <section id="projects" class="animate">
         <h2 class="section-title">Projects</h2>
         <h3>ABI Docs</h3>
         <p><strong>Senior QA Automation Engineer</strong> (March 2022 - Present)</p>
@@ -118,13 +165,24 @@
             <li>Conducted API testing with Postman and load testing with JMeter to validate backend services.</li>
             <li>Collaborated in sprint planning and retrospectives with cross-functional teams.</li>
         </ul>
+        <button onclick="alert('More projects will be listed here soon!')">View More Projects</button>
     </section>
 
-    <section class="contact">
+    <section id="contact" class="contact animate">
         <h2 class="section-title">Contact Information</h2>
         <p><strong>Phone:</strong> +91 7671898096</p>
         <p><strong>Email:</strong> Pranay.saven@gmail.com</p>
         <p><strong>Location:</strong> Hyderabad, India</p>
     </section>
+
+    <script>
+        // Add a simple fade-in animation when the page loads
+        document.querySelectorAll('.animate').forEach((element, index) => {
+            setTimeout(() => {
+                element.style.opacity = 1;
+                element.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+    </script>
 </body>
 </html>
